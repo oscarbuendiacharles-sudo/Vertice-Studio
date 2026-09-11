@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vértice Studio — Diseño de páginas web en Saltillo y Monterrey</title>
+<meta name="description" content="Diseñamos y cuidamos la página de tu negocio. Mándanos el link de la tuya y te decimos qué le arreglaríamos, sin costo.">
+<meta name="theme-color" content="#F8F9FB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vértice Studio — Que se vea como trabajas">
+<meta property="og:description" content="Diseñamos páginas para negocios de Saltillo y Monterrey que ya tienen buena reputación, pero cuya página no la refleja.">
+<!-- DEPLOY STEP: cambiar og:url y og:image por la URL real del sitio en vivo -->
+<meta property="og:url" content="https://vertice-studio.vercel.app/">
+<meta property="og:image" content="https://vertice-studio.vercel.app/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F8F9FB; --surface:#EBEFF4; --line:#D8DDE3; --line-strong:#CBD3DC;
+  --ink:#0F141A; --ink-2:#4A5560; --ink-3:#7B8794;
+  --accent:#1F4FBF; --accent-hover:#1A42A0; --accent-soft:#DCE6FB;
+  --dark:#0F141A; --dark-2:#171E26; --dark-line:#2A3440;
+  --on-dark:#E8ECF1; --on-dark-2:#98A1AB;
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+  --display:'Archivo',var(--sans);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --pad:clamp(20px,5vw,40px);
+  --max:1140px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,6.2vw,64px);line-height:1.06}
+h2{font-size:clamp(27px,4.2vw,40px);line-height:1.12}
+h3{font-size:20px;line-height:1.25;letter-spacing:-.01em}
+p{margin:0 0 1.1em}
+a{color:inherit}
+
+/* ---------- retícula de fondo ---------- */
+.reticula{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;
+  justify-content:center}
+.reticula>div{width:100%;max-width:var(--max);padding:0 var(--pad);
+  border-left:1px solid var(--line);border-right:1px solid var(--line);
+  height:100%;opacity:.75}
+@media(max-width:760px){.reticula{display:none}}
+
+.wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;
+  padding-left:var(--pad);padding-right:var(--pad)}
+section{position:relative;z-index:1}
+
+/* ---------- navegación ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(248,249,251,.86);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav .marca{display:flex;align-items:center}
+.nav .marca svg{height:36px;width:auto;display:block}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;font-size:14px;color:var(--ink-2);
+  transition:color .12s ease}
+.nav a:hover{color:var(--ink)}
+.nav a.btn,.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  font-size:15px;font-weight:500;padding:11px 22px;border-radius:6px;
+  transition:background .12s ease}
+.btn:hover{background:var(--accent-hover)}
+.nav a.btn-ghost,.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--surface)}
+@media(max-width:760px){.nav ul{display:none}}
+
+/* ---------- etiquetas mono ---------- */
+.et{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+  color:var(--accent);margin-bottom:22px}
+.dark .et{color:#7FA3E8}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(64px,11vw,120px) 0 clamp(56px,9vw,104px)}
+.hero h1{max-width:15ch}
+.hero .sub{font-size:clamp(17px,2.1vw,21px);color:var(--ink-2);max-width:52ch;
+  margin:28px 0 36px}
+.cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cta .nota{font-size:14px;color:var(--ink-3)}
+.hero .segunda{margin-top:26px;font-size:15px;color:var(--ink-3)}
+.hero .segunda a{color:var(--accent);text-underline-offset:3px}
+
+/* el ángulo que se dibuja */
+.angulo{margin-top:clamp(40px,7vw,72px);width:100%;height:auto;display:block}
+.angulo path{fill:none;stroke:var(--line-strong);stroke-width:1;vector-effect:non-scaling-stroke}
+.angulo .v{stroke:var(--ink);stroke-width:2;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+.angulo .pt{fill:var(--accent);stroke:none}
+
+/* ---------- secciones ---------- */
+.sec{padding:clamp(64px,9vw,104px) 0}
+.sec h2{max-width:18ch}
+.sec .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:56ch;
+  margin-top:24px}
+
+/* ---------- portafolio oscuro ---------- */
+.dark{background:var(--dark);color:var(--on-dark)}
+.dark h2,.dark h3{color:var(--on-dark)}
+.dark .lead{color:var(--on-dark-2)}
+.proyecto{margin-top:clamp(40px,6vw,64px);display:grid;
+  grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:center}
+.proyecto+.proyecto{margin-top:clamp(56px,8vw,104px)}
+@media(min-width:861px){
+  .proyecto.alt{grid-template-columns:.85fr 1.15fr}
+  .proyecto.alt .marco{order:2}
+  .proyecto.alt .info{order:1}
+}
+@media(max-width:860px){.proyecto{grid-template-columns:1fr}}
+a.marco{display:block;text-decoration:none;border:1px solid var(--dark-line);
+  border-radius:10px;overflow:hidden;background:var(--dark-2);
+  transition:border-color .3s ease,transform .3s ease}
+a.marco:hover{border-color:#3B4A59;transform:translateY(-4px)}
+a.marco:focus-visible{outline:2px solid #7FA3E8;outline-offset:4px}
+.marco .barra{display:flex;align-items:center;gap:7px;padding:11px 14px;
+  border-bottom:1px solid var(--dark-line)}
+.marco .barra i{width:9px;height:9px;border-radius:50%;background:var(--dark-line);
+  display:block}
+.marco .barra span{margin-left:10px;font-family:var(--mono);font-size:11px;
+  color:var(--on-dark-2)}
+.marco img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;
+  transition:transform .4s ease}
+a.marco:hover img{transform:scale(1.03)}
+.marco .barra span::after{content:" \2197";opacity:0;transition:opacity .3s ease}
+a.marco:hover .barra span{color:#7FA3E8}
+a.marco:hover .barra span::after{opacity:1}
+.meta{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+  color:var(--on-dark-2);margin-bottom:14px}
+.proyecto p{color:var(--on-dark-2);margin-top:16px}
+.enlace{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  font-size:15px;color:#7FA3E8;margin-top:6px}
+.enlace:hover{text-decoration:underline;text-underline-offset:4px}
+.nota-trabajo{margin-top:clamp(44px,6vw,72px);padding-top:22px;
+  border-top:1px solid var(--dark-line);font-size:14px;color:var(--on-dark-2);
+  max-width:62ch}
+.demo{display:inline-block;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;border:1px solid var(--dark-line);color:var(--on-dark-2);
+  padding:4px 10px;border-radius:4px;margin-bottom:14px}
+
+/* ---------- dos columnas de servicio ---------- */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);
+  margin-top:clamp(40px,5vw,60px)}
+@media(max-width:820px){.dos{grid-template-columns:1fr}}
+.dos ul{list-style:none;margin:20px 0 0;padding:0}
+.dos li{position:relative;padding-left:26px;margin-bottom:13px;color:var(--ink-2);
+  font-size:16px}
+.dos li::before{content:"";position:absolute;left:0;top:11px;width:11px;height:1px;
+  background:var(--accent)}
+.aparte{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3);max-width:62ch}
+
+/* ---------- proceso ---------- */
+.pasos{margin-top:clamp(40px,5vw,64px);display:grid;
+  grid-template-columns:repeat(4,1fr);gap:26px;position:relative}
+@media(max-width:900px){.pasos{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pasos{grid-template-columns:1fr}}
+.paso{padding-top:24px;border-top:1px solid var(--line);position:relative}
+.paso .n{font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+  color:var(--accent);margin-bottom:12px;display:block}
+.paso p{font-size:15px;color:var(--ink-2);margin:10px 0 0}
+.paso::after{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;
+  background:var(--accent);transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.paso.in::after{width:100%}
+
+/* ---------- preguntas ---------- */
+.faq{margin-top:clamp(36px,5vw,56px);max-width:78ch}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:22px 40px 22px 0;
+  font-family:var(--display);font-weight:500;font-size:19px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:31px;width:11px;
+  height:11px;border-right:1.5px solid var(--ink-3);
+  border-bottom:1.5px solid var(--ink-3);transform:rotate(45deg);
+  transition:transform .18s ease}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq .r{padding:0 0 24px;color:var(--ink-2);max-width:64ch}
+.faq .r p{margin:0}
+
+/* ---------- cierre ---------- */
+.cierre{background:var(--surface);border-top:1px solid var(--line)}
+.cierre .lead{max-width:58ch}
+
+/* ---------- pie ---------- */
+footer{background:var(--dark);color:var(--on-dark-2);
+  padding:clamp(48px,6vw,72px) 0 40px}
+footer .top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;
+  align-items:flex-start}
+footer svg{height:44px;width:auto;display:block}
+footer .slogan{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+  color:var(--on-dark-2);margin-top:18px}
+footer a{color:var(--on-dark);text-decoration:none}
+footer a:hover{text-decoration:underline;text-underline-offset:4px}
+footer .datos{font-size:15px;line-height:2}
+footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-line);
+  font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ---------- apariciones ---------- */
+.rv{opacity:0;transform:translateY(14px);
+  transition:opacity .3s ease-out,transform .3s ease-out}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .paso::after{transition:none;width:100%}
+  .angulo path{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+
+<div class="reticula" aria-hidden="true"><div></div></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="#" aria-label="Vértice Studio, inicio"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.6 80" role="img" aria-label="Vértice Studio">
+  <g transform="translate(8 8) scale(0.53333)">
+  <path d="M 34 8 L 104 8 A 4 4 0 0 1 112 16 L 112 86" fill="none" stroke="#0F141A" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 86 112 L 16 112 A 4 4 0 0 1 8 104 L 8 34" fill="none" stroke="#0F141A" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 8 34 L 8 16 A 4 4 0 0 1 16 8 L 34 8" fill="none" stroke="#1F4FBF" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 112 86 L 112 104 A 4 4 0 0 1 104 112 L 86 112" fill="none" stroke="#1F4FBF" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 34 33.9 L 60 78.93 L 86 33.9" fill="none" stroke="#0F141A" stroke-width="9.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+  </g>
+  <g transform="translate(92.0 44.0) scale(0.0379)"><path d="M260.0 0.0 10.0 -686.0H151.0L314.0 -214.0Q318.0 -204.0 322.0 -191.0Q326.0 -178.0 330.0 -166.5Q334.0 -155.0 337.0 -146.0H342.0Q345.0 -154.0 348.5 -165.0Q352.0 -176.0 356.0 -188.5Q360.0 -201.0 364.0 -213.0L526.0 -686.0H661.0L411.0 0.0Z M952.0 12.0Q868.0 12.0 812.0 -17.5Q756.0 -47.0 728.0 -108.0Q700.0 -169.0 700.0 -263.0Q700.0 -358.0 728.0 -418.5Q756.0 -479.0 812.0 -508.5Q868.0 -538.0 952.0 -538.0Q1028.0 -538.0 1079.5 -509.5Q1131.0 -481.0 1157.0 -422.0Q1183.0 -363.0 1183.0 -269.0V-233.0H825.0Q827.0 -184.0 840.0 -150.5Q853.0 -117.0 880.5 -100.5Q908.0 -84.0 953.0 -84.0Q976.0 -84.0 996.0 -90.0Q1016.0 -96.0 1031.0 -108.5Q1046.0 -121.0 1054.5 -140.0Q1063.0 -159.0 1063.0 -184.0H1183.0Q1183.0 -134.0 1165.5 -97.0Q1148.0 -60.0 1116.5 -36.0Q1085.0 -12.0 1043.0 0.0Q1001.0 12.0 952.0 12.0ZM827.0 -319.0H1056.0Q1056.0 -352.0 1048.5 -375.0Q1041.0 -398.0 1027.5 -413.0Q1014.0 -428.0 995.0 -434.5Q976.0 -441.0 952.0 -441.0Q913.0 -441.0 886.5 -428.0Q860.0 -415.0 846.0 -388.0Q832.0 -361.0 827.0 -319.0ZM886.0 -591.0 967.0 -723.0H1094.0L1095.0 -720.0L987.0 -591.0Z M1277.0 0.0V-526.0H1379.0L1389.0 -443.0H1396.0Q1406.0 -468.0 1420.5 -489.5Q1435.0 -511.0 1458.0 -524.5Q1481.0 -538.0 1514.0 -538.0Q1530.0 -538.0 1543.5 -535.0Q1557.0 -532.0 1564.0 -529.0V-414.0H1527.0Q1496.0 -414.0 1472.0 -405.5Q1448.0 -397.0 1431.5 -379.0Q1415.0 -361.0 1407.0 -334.0Q1399.0 -307.0 1399.0 -271.0V0.0Z M1768.0 12.0Q1719.0 12.0 1691.0 -7.5Q1663.0 -27.0 1651.5 -57.5Q1640.0 -88.0 1640.0 -120.0V-426.0H1577.0V-526.0H1643.0L1665.0 -673.0H1762.0V-526.0H1853.0V-426.0H1762.0V-132.0Q1762.0 -111.0 1773.0 -99.5Q1784.0 -88.0 1806.0 -88.0H1853.0V-4.0Q1843.0 0.0 1828.5 3.5Q1814.0 7.0 1798.0 9.5Q1782.0 12.0 1768.0 12.0Z M1933.0 -607.0V-723.0H2055.0V-607.0ZM1933.0 0.0V-526.0H2055.0V0.0Z M2394.0 12.0Q2312.0 12.0 2257.5 -17.5Q2203.0 -47.0 2176.0 -108.0Q2149.0 -169.0 2149.0 -263.0Q2149.0 -358.0 2176.5 -418.5Q2204.0 -479.0 2258.5 -508.5Q2313.0 -538.0 2394.0 -538.0Q2447.0 -538.0 2488.0 -525.0Q2529.0 -512.0 2558.5 -485.5Q2588.0 -459.0 2603.0 -420.0Q2618.0 -381.0 2618.0 -329.0H2494.0Q2494.0 -366.0 2483.0 -390.0Q2472.0 -414.0 2449.5 -426.5Q2427.0 -439.0 2392.0 -439.0Q2351.0 -439.0 2325.0 -420.0Q2299.0 -401.0 2286.5 -363.5Q2274.0 -326.0 2274.0 -269.0V-256.0Q2274.0 -200.0 2286.5 -162.0Q2299.0 -124.0 2326.0 -105.5Q2353.0 -87.0 2397.0 -87.0Q2431.0 -87.0 2453.5 -99.5Q2476.0 -112.0 2488.0 -137.0Q2500.0 -162.0 2500.0 -197.0H2618.0Q2618.0 -148.0 2603.0 -109.0Q2588.0 -70.0 2559.0 -43.0Q2530.0 -16.0 2488.5 -2.0Q2447.0 12.0 2394.0 12.0Z M2938.0 12.0Q2854.0 12.0 2798.0 -17.5Q2742.0 -47.0 2714.0 -108.0Q2686.0 -169.0 2686.0 -263.0Q2686.0 -358.0 2714.0 -418.5Q2742.0 -479.0 2798.0 -508.5Q2854.0 -538.0 2938.0 -538.0Q3014.0 -538.0 3065.5 -509.5Q3117.0 -481.0 3143.0 -422.0Q3169.0 -363.0 3169.0 -269.0V-233.0H2811.0Q2813.0 -184.0 2826.0 -150.5Q2839.0 -117.0 2866.5 -100.5Q2894.0 -84.0 2939.0 -84.0Q2962.0 -84.0 2982.0 -90.0Q3002.0 -96.0 3017.0 -108.5Q3032.0 -121.0 3040.5 -140.0Q3049.0 -159.0 3049.0 -184.0H3169.0Q3169.0 -134.0 3151.5 -97.0Q3134.0 -60.0 3102.5 -36.0Q3071.0 -12.0 3029.0 0.0Q2987.0 12.0 2938.0 12.0ZM2813.0 -319.0H3042.0Q3042.0 -352.0 3034.5 -375.0Q3027.0 -398.0 3013.5 -413.0Q3000.0 -428.0 2981.0 -434.5Q2962.0 -441.0 2938.0 -441.0Q2899.0 -441.0 2872.5 -428.0Q2846.0 -415.0 2832.0 -388.0Q2818.0 -361.0 2813.0 -319.0Z" fill="#0F141A"/></g>
+  <g transform="translate(92.0 62.0) scale(0.01233)"><path d="M302.8 10.0Q229.3 10.0 176.2 -14.6Q123.0 -39.2 94.1 -84.8Q65.2 -130.4 64.5 -193.0H172.5Q172.5 -143.4 207.3 -114.5Q242.1 -85.7 303.7 -85.7Q361.9 -85.7 394.7 -113.7Q427.5 -141.7 427.5 -191.3Q427.5 -231.7 405.1 -261.7Q382.6 -291.7 341.0 -303.2L249.5 -330.0Q169.1 -352.7 125.3 -408.4Q81.5 -464.0 81.5 -540.9Q81.5 -601.4 108.9 -646.1Q136.3 -690.8 186.1 -715.8Q235.9 -740.7 303.6 -740.7Q404.4 -740.7 464.6 -686.6Q524.9 -632.5 525.6 -542.0H417.6Q417.6 -590.3 387.5 -617.7Q357.4 -645.0 302.3 -645.0Q248.8 -645.0 219.1 -619.6Q189.5 -594.1 189.5 -548.3Q189.5 -507.2 211.8 -477.3Q234.2 -447.5 275.9 -435.3L369.3 -407.5Q449.5 -384.8 492.5 -329.0Q535.5 -273.3 535.5 -194.8Q535.5 -133.6 506.4 -87.4Q477.4 -41.2 425.1 -15.6Q372.8 10.0 302.8 10.0Z M2098.4 0.0V-631.3H1902.9V-730.7H2401.9V-631.3H2206.4V0.0Z M4004.8 10.0Q3900.1 10.0 3842.9 -47.5Q3785.8 -105.1 3785.8 -204.2V-730.0H3893.8V-204.5Q3893.8 -148.7 3921.5 -116.8Q3949.2 -85.0 4004.8 -85.0Q4059.4 -85.0 4087.6 -116.8Q4115.8 -148.7 4115.8 -204.5V-730.0H4223.8V-204.2Q4223.8 -104.7 4167.0 -47.3Q4110.2 10.0 4004.8 10.0Z M5640.5 0.0V-730.0H5843.9Q5916.4 -730.0 5969.4 -702.4Q6022.4 -674.8 6051.8 -624.8Q6081.2 -574.7 6081.2 -506.5V-224.5Q6081.2 -156.6 6051.8 -106.0Q6022.4 -55.5 5969.4 -27.7Q5916.4 0.0 5843.9 0.0ZM5748.5 -98.0H5843.9Q5903.9 -98.0 5938.5 -131.7Q5973.2 -165.4 5973.2 -224.5V-506.5Q5973.2 -564.6 5938.5 -598.3Q5903.9 -632.0 5843.9 -632.0H5748.5Z M7507.1 0.0V-96.4H7654.9V-633.6H7507.1V-730.0H7912.1V-633.6H7764.3V-96.4H7912.1V0.0Z M9562.0 10.0Q9493.9 10.0 9444.4 -15.7Q9395.0 -41.5 9368.3 -89.6Q9341.6 -137.7 9341.6 -203.0V-527.0Q9341.6 -593.0 9368.3 -640.8Q9395.0 -688.5 9444.4 -714.3Q9493.9 -740.0 9562.0 -740.0Q9630.4 -740.0 9679.7 -714.3Q9729.0 -688.5 9755.7 -640.8Q9782.4 -593.0 9782.4 -527.7V-203.0Q9782.4 -137.7 9755.7 -89.6Q9729.0 -41.5 9679.7 -15.7Q9630.4 10.0 9562.0 10.0ZM9562.0 -85.7Q9616.8 -85.7 9645.6 -116.2Q9674.4 -146.7 9674.4 -203.0V-527.0Q9674.4 -583.6 9645.7 -614.0Q9617.1 -644.3 9562.0 -644.3Q9507.6 -644.3 9478.6 -614.0Q9449.6 -583.6 9449.6 -527.0V-203.0Q9449.6 -146.7 9478.7 -116.2Q9507.9 -85.7 9562.0 -85.7Z" fill="#7B8794"/></g>
+</svg></a>
+    <nav><ul>
+      <li><a href="#trabajo">El trabajo</a></li>
+      <li><a href="#hacemos">Qué hacemos</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+    </ul></nav>
+    <a class="btn" href="#contacto">Escríbenos</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="et rv">SALTILLO · MONTERREY</span>
+    <h1 class="rv">Tu negocio ya es bueno. Tu página todavía no lo demuestra.</h1>
+    <p class="sub rv">Diseñamos páginas para negocios que tienen años de trabajo
+      bien hecho detrás y una presencia en internet que no lo refleja.</p>
+    <div class="cta rv">
+      <a class="btn" href="#contacto">Mándanos el link de tu página</a>
+      <span class="nota">Te decimos qué le arreglaríamos.<br>Sin costo y sin compromiso.</span>
+    </div>
+    <p class="segunda rv">¿Todavía no tienes página?
+      <a href="#contacto">Cuéntanos de tu negocio.</a></p>
+
+    <svg class="angulo" viewBox="0 0 1140 220" aria-hidden="true">
+      <path class="ln" d="M80 30 L570 200"></path>
+      <path class="ln" d="M280 30 L570 200"></path>
+      <path class="ln" d="M860 30 L570 200"></path>
+      <path class="ln" d="M1060 30 L570 200"></path>
+      <path class="v" d="M471.8 30 L570 200 L668.2 30"></path>
+      <circle class="pt" cx="570" cy="200" r="5.5"></circle>
+    </svg>
+  </div>
+</section>
+
+<section class="sec dark" id="trabajo">
+  <div class="wrap">
+    <span class="et rv">01 / EL TRABAJO</span>
+    <h2 class="rv">Míralo antes de creernos.</h2>
+    <p class="lead rv">Cada sitio se diseña desde cero para ese negocio.
+      Nada de plantillas rellenadas.</p>
+
+    <div class="proyecto">
+      <a class="marco rv" href="https://mirage-saltillo-norte.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el sitio de Mirage Saltillo Norte">
+        <div class="barra"><i></i><i></i><i></i><span>mirage-saltillo-norte.vercel.app</span></div>
+        <img src="assets/proyecto-1.jpg" alt="Página de Mirage Saltillo Norte, minisplits y cámaras en Saltillo" loading="lazy">
+      </a>
+      <div class="info rv">
+        <span class="demo">CLIENTE</span>
+        <div class="meta">SALTILLO · CLIMA Y SEGURIDAD</div>
+        <h3>Mirage Saltillo Norte</h3>
+        <p>Un instalador de minisplits y cámaras cuyo trabajo se vendía de boca en boca y no existía en internet. Le construimos una página que explica lo que hace, ordena sus dos servicios y deja el WhatsApp a un toque.</p>
+        <a class="enlace" href="https://mirage-saltillo-norte.vercel.app" target="_blank" rel="noopener">Ver el sitio →</a>
+      </div>
+    </div>
+
+    <div class="proyecto alt">
+      <a class="marco rv" href="https://peckers-two.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el sitio de Peckers">
+        <div class="barra"><i></i><i></i><i></i><span>peckers-two.vercel.app</span></div>
+        <img src="assets/proyecto-2.jpg" alt="Página de Peckers, pollo estilo Nashville en Monterrey" loading="lazy">
+      </a>
+      <div class="info rv">
+        <span class="demo">PROPUESTA</span>
+        <div class="meta">MONTERREY · RESTAURANTE</div>
+        <h3>Peckers</h3>
+        <p>Siete sucursales de pollo estilo Nashville. El cliente elige su sucursal una vez y todos los botones de la página apuntan a esa. Una tabla compara el precio de la casa contra el de las apps, para que pida directo y el restaurante no pierda la comisión.</p>
+        <a class="enlace" href="https://peckers-two.vercel.app" target="_blank" rel="noopener">Ver el sitio →</a>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <a class="marco rv" href="https://biosfera-de-alica.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el sitio de la Fundación Biósfera de Álica">
+        <div class="barra"><i></i><i></i><i></i><span>biosfera-de-alica.vercel.app</span></div>
+        <img src="assets/proyecto-3.jpg" alt="Página de la Fundación Biósfera de Álica, en Nayarit" loading="lazy">
+      </a>
+      <div class="info rv">
+        <span class="demo">PROPUESTA</span>
+        <div class="meta">NAYARIT · FUNDACIÓN</div>
+        <h3>Fundación Biósfera de Álica</h3>
+        <p>Una sierra de 346,225 hectáreas en Nayarit que busca ser declarada reserva. La página convierte su censo de 4,964 especies en el argumento y pone en orden los siete proyectos que tienen abiertos.</p>
+        <a class="enlace" href="https://biosfera-de-alica.vercel.app" target="_blank" rel="noopener">Ver el sitio →</a>
+      </div>
+    </div>
+
+    <p class="nota-trabajo rv">Una propuesta es un sitio completo que diseñamos y
+      construimos para ese negocio, y que todavía no publican ellos. Lo decimos
+      porque preferimos que sepas exactamente qué estás viendo.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <span class="et rv">02 / POR QUÉ IMPORTA</span>
+    <h2 class="rv">Tu cliente ya te comparó antes de llamarte.</h2>
+    <p class="lead rv">Cuando alguien necesita lo que tú vendes, abre Google, mira
+      tres opciones y descarta las que se ven mal. Esa decisión se toma en segundos
+      y tú nunca te enteras: no es una llamada que perdiste, es una llamada que
+      nunca entró.</p>
+    <p class="lead rv">No se trata de tener página. Se trata de que la página esté
+      a la altura del trabajo que ya haces.</p>
+  </div>
+</section>
+
+<section class="sec" id="hacemos">
+  <div class="wrap">
+    <span class="et rv">03 / QUÉ HACEMOS</span>
+    <h2 class="rv">Dos cosas, bien hechas.</h2>
+    <div class="dos">
+      <div class="rv">
+        <h3>Diseñamos tu página</h3>
+        <ul>
+          <li>Diseño original, hecho para tu negocio y para cómo vendes.</li>
+          <li>Se ve bien en el celular, que es donde la va a abrir casi todo mundo.</li>
+          <li>Abre en menos de dos segundos.</li>
+          <li>Preparada para que te encuentren cuando te buscan en Google.</li>
+          <li>Tus fotos y tus textos, presentados como se debe.</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h3>La cuidamos cada mes</h3>
+        <ul>
+          <li>Tu página siempre en línea y protegida.</li>
+          <li>Cambios de contenido cuando los necesites: fotos, precios,
+            promociones, horarios, productos.</li>
+          <li>Nos escribes por WhatsApp y queda.</li>
+          <li>Respaldos y actualizaciones, sin que tengas que pensar en eso.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="aparte rv">Las funciones nuevas y los rediseños se cotizan aparte, y
+      siempre te avisamos antes de hacer nada.</p>
+  </div>
+</section>
+
+<section class="sec" id="proceso">
+  <div class="wrap">
+    <span class="et rv">04 / CÓMO TRABAJAMOS</span>
+    <h2 class="rv">Cuatro pasos, sin sorpresas.</h2>
+    <div class="pasos">
+      <div class="paso rv"><span class="n">01</span><h3>Platicamos</h3>
+        <p>Entendemos qué vendes, a quién, y qué te preguntan tus clientes antes
+          de decidirse. Treinta minutos.</p></div>
+      <div class="paso rv"><span class="n">02</span><h3>Te damos precio cerrado</h3>
+        <p>Alcance, plazo y qué incluye. Por escrito, antes de empezar.</p></div>
+      <div class="paso rv"><span class="n">03</span><h3>Diseñamos y te lo enseñamos</h3>
+        <p>Ves la página antes de que esté terminada y la ajustamos contigo. No hay
+          sorpresas el día de la entrega.</p></div>
+      <div class="paso rv"><span class="n">04</span><h3>Publicamos y nos quedamos</h3>
+        <p>Sale en línea, y a partir de ahí nosotros la cuidamos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <span class="et rv">05 / DESPUÉS DE PUBLICAR</span>
+    <h2 class="rv">La parte que casi nadie te ofrece.</h2>
+    <p class="lead rv">La mayoría de las páginas de negocios están abandonadas. No
+      porque al dueño no le importe, sino porque cambiar una foto significa buscar
+      a quien la hizo, explicarle y esperar. Al final es más fácil no tocarla.</p>
+    <p class="lead rv">Con nosotros le mandas el cambio por WhatsApp y queda. Tu
+      página no se vuelve a quedar en 2021.</p>
+  </div>
+</section>
+
+<section class="sec" id="preguntas">
+  <div class="wrap">
+    <span class="et rv">06 / PREGUNTAS</span>
+    <h2 class="rv">Lo que todo mundo pregunta.</h2>
+    <div class="faq rv">
+      <details><summary>¿Cuánto cuesta?</summary><div class="r"><p>Cada proyecto se
+        cotiza según su alcance: no es lo mismo una página de cinco secciones que un
+        catálogo de doscientos productos. Te damos precio cerrado por escrito antes
+        de empezar, y no aparecen cargos después.</p></div></details>
+      <details><summary>¿Cuánto tarda?</summary><div class="r"><p>Cinco días hábiles
+        desde que tenemos tus fotos y tu información. A veces menos. Podemos ir así
+        de rápido porque tomamos pocos proyectos a la vez, no porque usemos
+        plantillas. El plazo va por escrito en el presupuesto.</p></div></details>
+      <details><summary>¿Y si no tengo fotos ni textos?</summary><div class="r">
+        <p>Es lo normal y no es un problema. Te decimos exactamente qué hace falta y
+        te ayudamos a ordenarlo.</p></div></details>
+      <details><summary>¿La página es mía?</summary><div class="r"><p>Sí. El dominio
+        se registra a tu nombre y la página es tuya. Si algún día decides trabajar
+        con alguien más, te entregamos todo.</p></div></details>
+      <details><summary>¿Manejan redes sociales o anuncios?</summary><div class="r">
+        <p>No. Hacemos páginas y las cuidamos. Preferimos hacer bien una cosa que
+        hacer regular tres.</p></div></details>
+      <details><summary>¿Tienen que ser de Saltillo o Monterrey?</summary>
+        <div class="r"><p>Trabajamos sobre todo aquí porque nos gusta conocer el
+        negocio en persona. Si estás en otra ciudad, escríbenos y lo
+        platicamos.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec cierre" id="contacto">
+  <div class="wrap">
+    <span class="et rv">07 / EMPECEMOS</span>
+    <h2 class="rv">Empieza por lo fácil.</h2>
+    <p class="lead rv">Mándanos el link de tu página actual y te decimos, sin costo
+      y sin compromiso, qué le arreglaríamos y por qué. Si todavía no tienes
+      página, cuéntanos de tu negocio y te decimos por dónde empezaríamos.</p>
+    <div class="cta rv" style="margin-top:34px">
+      <a class="btn" href="https://wa.me/528445673059">Escríbenos por WhatsApp</a>
+      <a class="btn btn-ghost" href="mailto:oscar_03buendia@hotmail.com">oscar_03buendia@hotmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.6 80" role="img" aria-label="Vértice Studio">
+  <g transform="translate(8 8) scale(0.53333)">
+  <path d="M 34 8 L 104 8 A 4 4 0 0 1 112 16 L 112 86" fill="none" stroke="#F8F9FB" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 86 112 L 16 112 A 4 4 0 0 1 8 104 L 8 34" fill="none" stroke="#F8F9FB" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 8 34 L 8 16 A 4 4 0 0 1 16 8 L 34 8" fill="none" stroke="#F8F9FB" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 112 86 L 112 104 A 4 4 0 0 1 104 112 L 86 112" fill="none" stroke="#F8F9FB" stroke-width="3.5" stroke-linecap="butt"/>
+  <path d="M 34 33.9 L 60 78.93 L 86 33.9" fill="none" stroke="#F8F9FB" stroke-width="9.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+  </g>
+  <g transform="translate(92.0 44.0) scale(0.0379)"><path d="M260.0 0.0 10.0 -686.0H151.0L314.0 -214.0Q318.0 -204.0 322.0 -191.0Q326.0 -178.0 330.0 -166.5Q334.0 -155.0 337.0 -146.0H342.0Q345.0 -154.0 348.5 -165.0Q352.0 -176.0 356.0 -188.5Q360.0 -201.0 364.0 -213.0L526.0 -686.0H661.0L411.0 0.0Z M952.0 12.0Q868.0 12.0 812.0 -17.5Q756.0 -47.0 728.0 -108.0Q700.0 -169.0 700.0 -263.0Q700.0 -358.0 728.0 -418.5Q756.0 -479.0 812.0 -508.5Q868.0 -538.0 952.0 -538.0Q1028.0 -538.0 1079.5 -509.5Q1131.0 -481.0 1157.0 -422.0Q1183.0 -363.0 1183.0 -269.0V-233.0H825.0Q827.0 -184.0 840.0 -150.5Q853.0 -117.0 880.5 -100.5Q908.0 -84.0 953.0 -84.0Q976.0 -84.0 996.0 -90.0Q1016.0 -96.0 1031.0 -108.5Q1046.0 -121.0 1054.5 -140.0Q1063.0 -159.0 1063.0 -184.0H1183.0Q1183.0 -134.0 1165.5 -97.0Q1148.0 -60.0 1116.5 -36.0Q1085.0 -12.0 1043.0 0.0Q1001.0 12.0 952.0 12.0ZM827.0 -319.0H1056.0Q1056.0 -352.0 1048.5 -375.0Q1041.0 -398.0 1027.5 -413.0Q1014.0 -428.0 995.0 -434.5Q976.0 -441.0 952.0 -441.0Q913.0 -441.0 886.5 -428.0Q860.0 -415.0 846.0 -388.0Q832.0 -361.0 827.0 -319.0ZM886.0 -591.0 967.0 -723.0H1094.0L1095.0 -720.0L987.0 -591.0Z M1277.0 0.0V-526.0H1379.0L1389.0 -443.0H1396.0Q1406.0 -468.0 1420.5 -489.5Q1435.0 -511.0 1458.0 -524.5Q1481.0 -538.0 1514.0 -538.0Q1530.0 -538.0 1543.5 -535.0Q1557.0 -532.0 1564.0 -529.0V-414.0H1527.0Q1496.0 -414.0 1472.0 -405.5Q1448.0 -397.0 1431.5 -379.0Q1415.0 -361.0 1407.0 -334.0Q1399.0 -307.0 1399.0 -271.0V0.0Z M1768.0 12.0Q1719.0 12.0 1691.0 -7.5Q1663.0 -27.0 1651.5 -57.5Q1640.0 -88.0 1640.0 -120.0V-426.0H1577.0V-526.0H1643.0L1665.0 -673.0H1762.0V-526.0H1853.0V-426.0H1762.0V-132.0Q1762.0 -111.0 1773.0 -99.5Q1784.0 -88.0 1806.0 -88.0H1853.0V-4.0Q1843.0 0.0 1828.5 3.5Q1814.0 7.0 1798.0 9.5Q1782.0 12.0 1768.0 12.0Z M1933.0 -607.0V-723.0H2055.0V-607.0ZM1933.0 0.0V-526.0H2055.0V0.0Z M2394.0 12.0Q2312.0 12.0 2257.5 -17.5Q2203.0 -47.0 2176.0 -108.0Q2149.0 -169.0 2149.0 -263.0Q2149.0 -358.0 2176.5 -418.5Q2204.0 -479.0 2258.5 -508.5Q2313.0 -538.0 2394.0 -538.0Q2447.0 -538.0 2488.0 -525.0Q2529.0 -512.0 2558.5 -485.5Q2588.0 -459.0 2603.0 -420.0Q2618.0 -381.0 2618.0 -329.0H2494.0Q2494.0 -366.0 2483.0 -390.0Q2472.0 -414.0 2449.5 -426.5Q2427.0 -439.0 2392.0 -439.0Q2351.0 -439.0 2325.0 -420.0Q2299.0 -401.0 2286.5 -363.5Q2274.0 -326.0 2274.0 -269.0V-256.0Q2274.0 -200.0 2286.5 -162.0Q2299.0 -124.0 2326.0 -105.5Q2353.0 -87.0 2397.0 -87.0Q2431.0 -87.0 2453.5 -99.5Q2476.0 -112.0 2488.0 -137.0Q2500.0 -162.0 2500.0 -197.0H2618.0Q2618.0 -148.0 2603.0 -109.0Q2588.0 -70.0 2559.0 -43.0Q2530.0 -16.0 2488.5 -2.0Q2447.0 12.0 2394.0 12.0Z M2938.0 12.0Q2854.0 12.0 2798.0 -17.5Q2742.0 -47.0 2714.0 -108.0Q2686.0 -169.0 2686.0 -263.0Q2686.0 -358.0 2714.0 -418.5Q2742.0 -479.0 2798.0 -508.5Q2854.0 -538.0 2938.0 -538.0Q3014.0 -538.0 3065.5 -509.5Q3117.0 -481.0 3143.0 -422.0Q3169.0 -363.0 3169.0 -269.0V-233.0H2811.0Q2813.0 -184.0 2826.0 -150.5Q2839.0 -117.0 2866.5 -100.5Q2894.0 -84.0 2939.0 -84.0Q2962.0 -84.0 2982.0 -90.0Q3002.0 -96.0 3017.0 -108.5Q3032.0 -121.0 3040.5 -140.0Q3049.0 -159.0 3049.0 -184.0H3169.0Q3169.0 -134.0 3151.5 -97.0Q3134.0 -60.0 3102.5 -36.0Q3071.0 -12.0 3029.0 0.0Q2987.0 12.0 2938.0 12.0ZM2813.0 -319.0H3042.0Q3042.0 -352.0 3034.5 -375.0Q3027.0 -398.0 3013.5 -413.0Q3000.0 -428.0 2981.0 -434.5Q2962.0 -441.0 2938.0 -441.0Q2899.0 -441.0 2872.5 -428.0Q2846.0 -415.0 2832.0 -388.0Q2818.0 -361.0 2813.0 -319.0Z" fill="#F8F9FB"/></g>
+  <g transform="translate(92.0 62.0) scale(0.01233)"><path d="M302.8 10.0Q229.3 10.0 176.2 -14.6Q123.0 -39.2 94.1 -84.8Q65.2 -130.4 64.5 -193.0H172.5Q172.5 -143.4 207.3 -114.5Q242.1 -85.7 303.7 -85.7Q361.9 -85.7 394.7 -113.7Q427.5 -141.7 427.5 -191.3Q427.5 -231.7 405.1 -261.7Q382.6 -291.7 341.0 -303.2L249.5 -330.0Q169.1 -352.7 125.3 -408.4Q81.5 -464.0 81.5 -540.9Q81.5 -601.4 108.9 -646.1Q136.3 -690.8 186.1 -715.8Q235.9 -740.7 303.6 -740.7Q404.4 -740.7 464.6 -686.6Q524.9 -632.5 525.6 -542.0H417.6Q417.6 -590.3 387.5 -617.7Q357.4 -645.0 302.3 -645.0Q248.8 -645.0 219.1 -619.6Q189.5 -594.1 189.5 -548.3Q189.5 -507.2 211.8 -477.3Q234.2 -447.5 275.9 -435.3L369.3 -407.5Q449.5 -384.8 492.5 -329.0Q535.5 -273.3 535.5 -194.8Q535.5 -133.6 506.4 -87.4Q477.4 -41.2 425.1 -15.6Q372.8 10.0 302.8 10.0Z M2098.4 0.0V-631.3H1902.9V-730.7H2401.9V-631.3H2206.4V0.0Z M4004.8 10.0Q3900.1 10.0 3842.9 -47.5Q3785.8 -105.1 3785.8 -204.2V-730.0H3893.8V-204.5Q3893.8 -148.7 3921.5 -116.8Q3949.2 -85.0 4004.8 -85.0Q4059.4 -85.0 4087.6 -116.8Q4115.8 -148.7 4115.8 -204.5V-730.0H4223.8V-204.2Q4223.8 -104.7 4167.0 -47.3Q4110.2 10.0 4004.8 10.0Z M5640.5 0.0V-730.0H5843.9Q5916.4 -730.0 5969.4 -702.4Q6022.4 -674.8 6051.8 -624.8Q6081.2 -574.7 6081.2 -506.5V-224.5Q6081.2 -156.6 6051.8 -106.0Q6022.4 -55.5 5969.4 -27.7Q5916.4 0.0 5843.9 0.0ZM5748.5 -98.0H5843.9Q5903.9 -98.0 5938.5 -131.7Q5973.2 -165.4 5973.2 -224.5V-506.5Q5973.2 -564.6 5938.5 -598.3Q5903.9 -632.0 5843.9 -632.0H5748.5Z M7507.1 0.0V-96.4H7654.9V-633.6H7507.1V-730.0H7912.1V-633.6H7764.3V-96.4H7912.1V0.0Z M9562.0 10.0Q9493.9 10.0 9444.4 -15.7Q9395.0 -41.5 9368.3 -89.6Q9341.6 -137.7 9341.6 -203.0V-527.0Q9341.6 -593.0 9368.3 -640.8Q9395.0 -688.5 9444.4 -714.3Q9493.9 -740.0 9562.0 -740.0Q9630.4 -740.0 9679.7 -714.3Q9729.0 -688.5 9755.7 -640.8Q9782.4 -593.0 9782.4 -527.7V-203.0Q9782.4 -137.7 9755.7 -89.6Q9729.0 -41.5 9679.7 -15.7Q9630.4 10.0 9562.0 10.0ZM9562.0 -85.7Q9616.8 -85.7 9645.6 -116.2Q9674.4 -146.7 9674.4 -203.0V-527.0Q9674.4 -583.6 9645.7 -614.0Q9617.1 -644.3 9562.0 -644.3Q9507.6 -644.3 9478.6 -614.0Q9449.6 -583.6 9449.6 -527.0V-203.0Q9449.6 -146.7 9478.7 -116.2Q9507.9 -85.7 9562.0 -85.7Z" fill="#98A1AB"/></g>
+</svg>
+        <div class="slogan">QUE SE VEA COMO TRABAJAS</div>
+      </div>
+      <div class="datos">
+        San Sebastián 267, Portales de Aragón<br>
+        Saltillo, Coahuila 25290<br>
+        Atendemos Saltillo y Monterrey<br>
+        <a href="https://wa.me/528445673059">WhatsApp 844 567 3059</a><br>
+        <a href="mailto:oscar_03buendia@hotmail.com">oscar_03buendia@hotmail.com</a>
+      </div>
+    </div>
+    <div class="abajo">
+      <span>© 2026 Vértice Studio</span>
+      <span>verticestudio.mx</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mr = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // el ángulo del hero se dibuja al cargar
+  var ang = document.querySelector('.angulo');
+  if (ang && !mr) {
+    var ps = ang.querySelectorAll('path'), i = 0;
+    ps.forEach(function(p){
+      var L = p.getTotalLength();
+      p.style.strokeDasharray = L;
+      p.style.strokeDashoffset = L;
+      p.style.transition = 'stroke-dashoffset .9s cubic-bezier(.2,.7,.3,1) ' + (i*0.11 + 0.25) + 's';
+      i++;
+    });
+    var pt = ang.querySelector('.pt');
+    if (pt) { pt.style.opacity = 0; pt.style.transition = 'opacity .3s ease-out .95s'; }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        ps.forEach(function(p){ p.style.strokeDashoffset = 0; });
+        if (pt) pt.style.opacity = 1;
+      });
+    });
+  }
+
+  // apariciones al hacer scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target, sibs = el.parentNode.querySelectorAll(':scope > .rv');
+      var idx = Array.prototype.indexOf.call(sibs, el);
+      el.style.transitionDelay = (idx > 0 ? Math.min(idx,4) * 0.06 : 0) + 's';
+      el.classList.add('in');
+      setTimeout(function(){ el.style.transitionDelay = ''; }, 700);
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
