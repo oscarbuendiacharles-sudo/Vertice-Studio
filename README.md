@@ -49,3 +49,9 @@ Además:
 Sirve como sitio estático en cualquier lado (Netlify, Vercel, Cloudflare Pages).
 No hay build. Lo único importante: comprimir la imagen del proyecto y servir
 todo por HTTPS.
+
+## Publicación
+
+El repositorio está conectado a Vercel. Cada `git push` a `main` publica solo
+en https://vertice-studio-two.vercel.app en menos de un minuto. No hay que
+subir zips ni arrastrar nada.
