@@ -3,16 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vértice Studio — Diseño de páginas web en Saltillo y Monterrey</title>
-<meta name="description" content="Diseñamos y cuidamos la página de tu negocio. Mándanos el link de la tuya y te decimos qué le arreglaríamos, sin costo.">
+<title>Vértice Studio — Páginas web con SEO integrado en Saltillo y Monterrey</title>
+<meta name="description" content="Desarrollamos páginas web diseñadas, rápidas y preparadas para que te encuentren en Google. Para negocios de Saltillo y Monterrey. Mándanos el link de la tuya y te decimos qué le arreglaríamos, sin costo.">
 <meta name="theme-color" content="#F8F9FB">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Vértice Studio — Que se vea como trabajas">
-<meta property="og:description" content="Diseñamos páginas para negocios de Saltillo y Monterrey que ya tienen buena reputación, pero cuya página no la refleja.">
+<meta property="og:title" content="Vértice Studio — Páginas web hechas para que te encuentren">
+<meta property="og:description" content="Hoy cualquiera puede hacer una página. Nosotros hacemos páginas preparadas para ser encontradas: SEO integrado desde el código, rápidas y bien en el celular. Saltillo y Monterrey.">
 <!-- Cuando el sitio viva en verticestudio.mx, cambiar estas dos líneas a esa dirección -->
 <meta property="og:url" content="https://vertice-studio-two.vercel.app/">
 <meta property="og:image" content="https://vertice-studio-two.vercel.app/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://vertice-studio-two.vercel.app/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vértice Studio",
+  "description": "Desarrollo de páginas web con SEO integrado desde el inicio, para negocios de Saltillo y Monterrey.",
+  "url": "https://vertice-studio-two.vercel.app/",
+  "telephone": "+52 844 567 3059",
+  "email": "oscar_03buendia@hotmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Saltillo", "addressRegion": "Coahuila", "postalCode": "25290", "addressCountry": "MX"},
+  "areaServed": [{"@type": "City", "name": "Saltillo"}, {"@type": "City", "name": "Monterrey"}],
+  "knowsAbout": ["Diseño web", "SEO", "SEO local", "Rendimiento web", "Experiencia móvil"]
+}
+</script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,13 +93,18 @@ header{position:sticky;top:0;z-index:20;background:rgba(248,249,251,.86);
 
 /* ---------- hero ---------- */
 .hero{padding:clamp(64px,11vw,120px) 0 clamp(56px,9vw,104px)}
-.hero h1{max-width:15ch}
+.hero h1{max-width:17ch}
 .hero .sub{font-size:clamp(17px,2.1vw,21px);color:var(--ink-2);max-width:52ch;
   margin:28px 0 36px}
 .cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .cta .nota{font-size:14px;color:var(--ink-3)}
 .hero .segunda{margin-top:26px;font-size:15px;color:var(--ink-3)}
 .hero .segunda a{color:var(--accent);text-underline-offset:3px}
+
+/* la fórmula bajo el titular */
+.formula{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:26px 0 0;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink)}
+.formula i{font-style:normal;color:var(--accent);font-size:14px}
 
 /* el ángulo que se dibuja */
 .angulo{margin-top:clamp(40px,7vw,72px);width:100%;height:auto;display:block}
@@ -97,6 +117,60 @@ header{position:sticky;top:0;z-index:20;background:rgba(248,249,251,.86);
 .sec h2{max-width:18ch}
 .sec .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:56ch;
   margin-top:24px}
+
+/* ---------- seo: el pilar ---------- */
+.seo{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.seo h2{max-width:22ch}
+.seo .lead{max-width:60ch}
+.seo-linea{margin-top:34px;padding:22px 26px;border-left:3px solid var(--accent);
+  background:var(--paper);font-family:var(--display);font-weight:500;
+  font-size:clamp(18px,2.2vw,22px);line-height:1.35;letter-spacing:-.01em;max-width:64ch}
+.seo-linea small{display:block;margin-top:10px;font-family:var(--sans);font-weight:400;
+  font-size:14px;line-height:1.6;color:var(--ink-3)}
+.base{margin-top:clamp(44px,6vw,72px);display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:900px){.base{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.base{grid-template-columns:1fr}}
+.base>div{padding:26px 24px 28px;border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);background:var(--paper)}
+.base .n{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);
+  display:block;margin-bottom:14px}
+.base h3{font-size:19px;margin-bottom:10px}
+.base p{font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.base .tec{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:uppercase;line-height:1.6}
+
+/* ---------- qué hacemos: el flujo ---------- */
+.flujo{margin-top:clamp(40px,5vw,60px)}
+.etapa{display:grid;grid-template-columns:130px 1fr;gap:clamp(20px,4vw,48px);
+  padding:30px 0 34px;border-top:1px solid var(--line);position:relative}
+.etapa::after{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;
+  background:var(--accent);transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.etapa.in::after{width:100%}
+@media(max-width:640px){.etapa{grid-template-columns:1fr;gap:12px}}
+.etapa .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-3)}
+.etapa .n b{display:block;font-family:var(--display);font-weight:600;
+  font-size:clamp(30px,3.6vw,42px);letter-spacing:-.02em;color:var(--ink);
+  line-height:1;margin-top:8px}
+.etapa h3{font-size:22px;margin-bottom:10px}
+.etapa p{color:var(--ink-2);margin:0;max-width:58ch;font-size:16px}
+.etapa .que{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);
+  display:block;margin-top:14px;text-transform:uppercase}
+
+/* ---------- por qué vértice ---------- */
+.porque{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);
+  margin-top:clamp(40px,5vw,60px)}
+@media(max-width:820px){.porque{grid-template-columns:1fr}}
+.porque h3{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:18px}
+.porque .si h3{color:var(--accent)}
+.porque ul{list-style:none;margin:0;padding:0}
+.porque li{position:relative;padding-left:26px;margin-bottom:14px;font-size:16px;
+  color:var(--ink-2)}
+.porque li::before{content:"";position:absolute;left:0;top:12px;width:11px;height:1px;
+  background:var(--line-strong)}
+.porque .si li{color:var(--ink)}
+.porque .si li::before{background:var(--accent)}
 
 /* ---------- portafolio oscuro ---------- */
 .dark{background:var(--dark);color:var(--on-dark)}
@@ -229,9 +303,10 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
   <g transform="translate(92.0 62.0) scale(0.01233)"><path d="M302.8 10.0Q229.3 10.0 176.2 -14.6Q123.0 -39.2 94.1 -84.8Q65.2 -130.4 64.5 -193.0H172.5Q172.5 -143.4 207.3 -114.5Q242.1 -85.7 303.7 -85.7Q361.9 -85.7 394.7 -113.7Q427.5 -141.7 427.5 -191.3Q427.5 -231.7 405.1 -261.7Q382.6 -291.7 341.0 -303.2L249.5 -330.0Q169.1 -352.7 125.3 -408.4Q81.5 -464.0 81.5 -540.9Q81.5 -601.4 108.9 -646.1Q136.3 -690.8 186.1 -715.8Q235.9 -740.7 303.6 -740.7Q404.4 -740.7 464.6 -686.6Q524.9 -632.5 525.6 -542.0H417.6Q417.6 -590.3 387.5 -617.7Q357.4 -645.0 302.3 -645.0Q248.8 -645.0 219.1 -619.6Q189.5 -594.1 189.5 -548.3Q189.5 -507.2 211.8 -477.3Q234.2 -447.5 275.9 -435.3L369.3 -407.5Q449.5 -384.8 492.5 -329.0Q535.5 -273.3 535.5 -194.8Q535.5 -133.6 506.4 -87.4Q477.4 -41.2 425.1 -15.6Q372.8 10.0 302.8 10.0Z M2098.4 0.0V-631.3H1902.9V-730.7H2401.9V-631.3H2206.4V0.0Z M4004.8 10.0Q3900.1 10.0 3842.9 -47.5Q3785.8 -105.1 3785.8 -204.2V-730.0H3893.8V-204.5Q3893.8 -148.7 3921.5 -116.8Q3949.2 -85.0 4004.8 -85.0Q4059.4 -85.0 4087.6 -116.8Q4115.8 -148.7 4115.8 -204.5V-730.0H4223.8V-204.2Q4223.8 -104.7 4167.0 -47.3Q4110.2 10.0 4004.8 10.0Z M5640.5 0.0V-730.0H5843.9Q5916.4 -730.0 5969.4 -702.4Q6022.4 -674.8 6051.8 -624.8Q6081.2 -574.7 6081.2 -506.5V-224.5Q6081.2 -156.6 6051.8 -106.0Q6022.4 -55.5 5969.4 -27.7Q5916.4 0.0 5843.9 0.0ZM5748.5 -98.0H5843.9Q5903.9 -98.0 5938.5 -131.7Q5973.2 -165.4 5973.2 -224.5V-506.5Q5973.2 -564.6 5938.5 -598.3Q5903.9 -632.0 5843.9 -632.0H5748.5Z M7507.1 0.0V-96.4H7654.9V-633.6H7507.1V-730.0H7912.1V-633.6H7764.3V-96.4H7912.1V0.0Z M9562.0 10.0Q9493.9 10.0 9444.4 -15.7Q9395.0 -41.5 9368.3 -89.6Q9341.6 -137.7 9341.6 -203.0V-527.0Q9341.6 -593.0 9368.3 -640.8Q9395.0 -688.5 9444.4 -714.3Q9493.9 -740.0 9562.0 -740.0Q9630.4 -740.0 9679.7 -714.3Q9729.0 -688.5 9755.7 -640.8Q9782.4 -593.0 9782.4 -527.7V-203.0Q9782.4 -137.7 9755.7 -89.6Q9729.0 -41.5 9679.7 -15.7Q9630.4 10.0 9562.0 10.0ZM9562.0 -85.7Q9616.8 -85.7 9645.6 -116.2Q9674.4 -146.7 9674.4 -203.0V-527.0Q9674.4 -583.6 9645.7 -614.0Q9617.1 -644.3 9562.0 -644.3Q9507.6 -644.3 9478.6 -614.0Q9449.6 -583.6 9449.6 -527.0V-203.0Q9449.6 -146.7 9478.7 -116.2Q9507.9 -85.7 9562.0 -85.7Z" fill="#7B8794"/></g>
 </svg></a>
     <nav><ul>
+      <li><a href="#seo">SEO</a></li>
       <li><a href="#trabajo">El trabajo</a></li>
       <li><a href="#hacemos">Qué hacemos</a></li>
-      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#porque">Por qué Vértice</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
     </ul></nav>
     <a class="btn" href="#contacto">Escríbenos</a>
@@ -241,9 +316,11 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
 <section class="hero">
   <div class="wrap">
     <span class="et rv">SALTILLO · MONTERREY</span>
-    <h1 class="rv">Tu negocio ya es bueno. Tu página todavía no lo demuestra.</h1>
-    <p class="sub rv">Diseñamos páginas para negocios que tienen años de trabajo
-      bien hecho detrás y una presencia en internet que no lo refleja.</p>
+    <h1 class="rv">Tu negocio ya es bueno. Ahora hagamos que también lo encuentren.</h1>
+    <p class="formula rv" aria-label="Página web más SEO más rendimiento">PÁGINA WEB <i>+</i> SEO <i>+</i> RENDIMIENTO</p>
+    <p class="sub rv">Desarrollamos páginas web diseñadas, rápidas y optimizadas para
+      posicionamiento orgánico. Para que aparezcas cuando alguien busca lo que
+      vendes, y para que convenzas cuando te ven.</p>
     <div class="cta rv">
       <a class="btn" href="#contacto">Mándanos el link de tu página</a>
       <span class="nota">Te decimos qué le arreglaríamos.<br>Sin costo y sin compromiso.</span>
@@ -262,9 +339,55 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
   </div>
 </section>
 
+<section class="sec seo" id="seo">
+  <div class="wrap">
+    <span class="et rv">01 / QUE TE ENCUENTREN</span>
+    <h2 class="rv">Una página bonita no sirve de mucho si nadie la encuentra.</h2>
+    <p class="lead rv">Hoy cualquiera puede hacer una página web. Hay herramientas
+      que la arman en una tarde y se ve decente. La diferencia ya no está en tener
+      página: está en tener una que Google entienda, que abra rápido y que aparezca
+      cuando alguien busca lo que tú vendes, en tu ciudad.</p>
+    <p class="lead rv">Nosotros no le "agregamos SEO" a una página ya hecha. La
+      construimos desde el código con esa base: cómo está organizada, qué dice
+      cada título, qué tan rápido carga, cómo se comporta en el celular. Eso es lo
+      que un buscador lee antes de decidir si te muestra o no.</p>
+    <div class="seo-linea rv">Construimos una base técnica y de contenido preparada
+      para competir por búsquedas relevantes.<small>No prometemos posiciones en
+      Google. Nadie honesto puede prometerlas. Lo que sí controlamos es que tu
+      página entre a la competencia bien construida.</small></div>
+
+    <div class="base">
+      <div class="rv"><span class="n">01</span><h3>Que Google entienda de qué trata tu página</h3>
+        <p>Cada sección está organizada para que un buscador sepa qué vendes, a
+          quién y dónde, sin tener que adivinar.</p>
+        <span class="tec">Jerarquía de contenido · Datos estructurados</span></div>
+      <div class="rv"><span class="n">02</span><h3>Que aparezcas para lo que vendes, donde lo vendes</h3>
+        <p>La página se prepara para las búsquedas de tus servicios en Saltillo y
+          Monterrey, que son las que traen clientes de verdad.</p>
+        <span class="tec">SEO local · Búsquedas por servicio y ubicación</span></div>
+      <div class="rv"><span class="n">03</span><h3>Que cada página diga exactamente lo que ofrece</h3>
+        <p>El título y la descripción que Google muestra en los resultados se
+          escriben a propósito, no se dejan al azar.</p>
+        <span class="tec">Títulos y meta descripciones</span></div>
+      <div class="rv"><span class="n">04</span><h3>Que abra en menos de dos segundos</h3>
+        <p>La velocidad cuenta para el buscador y para la persona: nadie espera a
+          una página lenta, y Google lo sabe.</p>
+        <span class="tec">Velocidad y rendimiento medidos</span></div>
+      <div class="rv"><span class="n">05</span><h3>Que funcione perfecto en el celular</h3>
+        <p>La mayoría de las búsquedas locales se hacen desde el teléfono. Ahí es
+          donde tu página tiene que verse mejor.</p>
+        <span class="tec">Experiencia móvil</span></div>
+      <div class="rv"><span class="n">06</span><h3>Que los buscadores puedan leerla completa</h3>
+        <p>Una estructura limpia, sin obstáculos técnicos, para que Google recorra
+          e indexe cada parte del sitio.</p>
+        <span class="tec">SEO técnico · Estructura preparada para indexación</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec dark" id="trabajo">
   <div class="wrap">
-    <span class="et rv">01 / EL TRABAJO</span>
+    <span class="et rv">02 / EL TRABAJO</span>
     <h2 class="rv">Míralo antes de creernos.</h2>
     <p class="lead rv">Cada sitio se diseña desde cero para ese negocio.
       Nada de plantillas rellenadas.</p>
@@ -319,51 +442,80 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
 
 <section class="sec">
   <div class="wrap">
-    <span class="et rv">02 / POR QUÉ IMPORTA</span>
+    <span class="et rv">03 / POR QUÉ IMPORTA</span>
     <h2 class="rv">Tu cliente ya te comparó antes de llamarte.</h2>
     <p class="lead rv">Cuando alguien necesita lo que tú vendes, abre Google, mira
-      tres opciones y descarta las que se ven mal. Esa decisión se toma en segundos
-      y tú nunca te enteras: no es una llamada que perdiste, es una llamada que
-      nunca entró.</p>
-    <p class="lead rv">No se trata de tener página. Se trata de que la página esté
-      a la altura del trabajo que ya haces.</p>
+      las tres primeras opciones que encuentra y descarta las que se ven mal. Esa
+      decisión se toma en segundos y tú nunca te enteras: no es una llamada que
+      perdiste, es una llamada que nunca entró.</p>
+    <p class="lead rv">Si no apareces, no te comparan. Y si apareces con una página
+      que no está a la altura de tu trabajo, te comparan y pierdes. Las dos cosas
+      se arreglan juntas.</p>
   </div>
 </section>
 
 <section class="sec" id="hacemos">
   <div class="wrap">
-    <span class="et rv">03 / QUÉ HACEMOS</span>
-    <h2 class="rv">Dos cosas, bien hechas.</h2>
-    <div class="dos">
-      <div class="rv">
-        <h3>Diseñamos tu página</h3>
-        <ul>
-          <li>Diseño original, hecho para tu negocio y para cómo vendes.</li>
-          <li>Se ve bien en el celular, que es donde la va a abrir casi todo mundo.</li>
-          <li>Abre en menos de dos segundos.</li>
-          <li>Preparada para que te encuentren cuando te buscan en Google.</li>
-          <li>Tus fotos y tus textos, presentados como se debe.</li>
-        </ul>
-      </div>
-      <div class="rv">
-        <h3>La cuidamos cada mes</h3>
-        <ul>
-          <li>Tu página siempre en línea y protegida.</li>
-          <li>Cambios de contenido cuando los necesites: fotos, precios,
-            promociones, horarios, productos.</li>
-          <li>Nos escribes por WhatsApp y queda.</li>
-          <li>Respaldos y actualizaciones, sin que tengas que pensar en eso.</li>
-        </ul>
-      </div>
+    <span class="et rv">04 / QUÉ HACEMOS</span>
+    <h2 class="rv">Cuatro cosas, en el orden en que pasan.</h2>
+    <p class="lead rv">Una página no sirve por verse bien. Sirve cuando alguien la
+      encuentra, le convence y te contacta. Así la construimos.</p>
+    <div class="flujo">
+      <div class="etapa rv"><div class="n">PRIMERO<b>01</b></div><div>
+        <h3>Que te encuentren</h3>
+        <p>La página nace con la base de SEO en el código: estructura clara, títulos
+          escritos para buscar, velocidad, y preparada para las búsquedas de tu
+          servicio en tu ciudad. Sin esto, lo demás no llega a pasar.</p>
+        <span class="que">SEO integrado desde el inicio</span></div></div>
+      <div class="etapa rv"><div class="n">DESPUÉS<b>02</b></div><div>
+        <h3>Que tu página convenza</h3>
+        <p>Diseño original para tu negocio, no una plantilla. Abre rápido, se ve
+          bien en el celular y presenta tu trabajo como se debe. Quien llega debe
+          pensar en cinco segundos: "esta empresa es seria".</p>
+        <span class="que">Diseño · Rendimiento · Experiencia móvil</span></div></div>
+      <div class="etapa rv"><div class="n">LUEGO<b>03</b></div><div>
+        <h3>Que el visitante se convierta en cliente</h3>
+        <p>Cada sección lleva a una acción clara: WhatsApp, llamada o presupuesto.
+          Sin formularios eternos ni pasos de más entre la persona y tú.</p>
+        <span class="que">Conversión</span></div></div>
+      <div class="etapa rv"><div class="n">SIEMPRE<b>04</b></div><div>
+        <h3>Que siga funcionando y mejorando</h3>
+        <p>Nos quedamos cuidándola cada mes: cambios de contenido por WhatsApp,
+          respaldos, y ajustes de SEO según lo que las mediciones vayan diciendo.</p>
+        <span class="que">Mantenimiento y optimización continua</span></div></div>
     </div>
     <p class="aparte rv">Las funciones nuevas y los rediseños se cotizan aparte, y
       siempre te avisamos antes de hacer nada.</p>
   </div>
 </section>
 
+<section class="sec" id="porque">
+  <div class="wrap">
+    <span class="et rv">05 / POR QUÉ VÉRTICE</span>
+    <h2 class="rv">¿Por qué Vértice?</h2>
+    <p class="lead rv">Hoy hacer una página web es fácil. Hacer una página pensada
+      desde el principio para buscadores, rendimiento, experiencia móvil y
+      conversión requiere mucho más: son decisiones técnicas que se toman en el
+      código, antes de que exista una sola pantalla bonita.</p>
+    <div class="porque">
+      <div class="no rv"><h3>Lo que no vendemos</h3><ul>
+        <li>Una plantilla rellenada con tu logo.</li>
+        <li>Un diseño bonito que nadie encuentra.</li>
+        <li>Una página estática que se entrega y se abandona.</li>
+      </ul></div>
+      <div class="si rv"><h3>Lo que construimos</h3><ul>
+        <li>Una herramienta digital pensada para tu negocio.</li>
+        <li>Preparada para que te encuentren cuando te buscan.</li>
+        <li>Hecha para convencer y para que te contacten.</li>
+        <li>Medida y cuidada cada mes, para que siga mejorando.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="proceso">
   <div class="wrap">
-    <span class="et rv">04 / CÓMO TRABAJAMOS</span>
+    <span class="et rv">06 / CÓMO TRABAJAMOS</span>
     <h2 class="rv">Cuatro pasos, sin sorpresas.</h2>
     <div class="pasos">
       <div class="paso rv"><span class="n">01</span><h3>Platicamos</h3>
@@ -382,19 +534,20 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
 
 <section class="sec">
   <div class="wrap">
-    <span class="et rv">05 / DESPUÉS DE PUBLICAR</span>
+    <span class="et rv">07 / DESPUÉS DE PUBLICAR</span>
     <h2 class="rv">La parte que casi nadie te ofrece.</h2>
     <p class="lead rv">La mayoría de las páginas de negocios están abandonadas. No
       porque al dueño no le importe, sino porque cambiar una foto significa buscar
       a quien la hizo, explicarle y esperar. Al final es más fácil no tocarla.</p>
-    <p class="lead rv">Con nosotros le mandas el cambio por WhatsApp y queda. Tu
-      página no se vuelve a quedar en 2021.</p>
+    <p class="lead rv">Con nosotros le mandas el cambio por WhatsApp y queda. Y
+      cada mes revisamos cómo está apareciendo en Google, para ajustar lo que haga
+      falta. Tu página no se vuelve a quedar en 2021.</p>
   </div>
 </section>
 
 <section class="sec" id="preguntas">
   <div class="wrap">
-    <span class="et rv">06 / PREGUNTAS</span>
+    <span class="et rv">08 / PREGUNTAS</span>
     <h2 class="rv">Lo que todo mundo pregunta.</h2>
     <div class="faq rv">
       <details><summary>¿Cuánto cuesta?</summary><div class="r"><p>Cada proyecto se
@@ -405,6 +558,12 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
         desde que tenemos tus fotos y tu información. A veces menos. Podemos ir así
         de rápido porque tomamos pocos proyectos a la vez, no porque usemos
         plantillas. El plazo va por escrito en el presupuesto.</p></div></details>
+      <details><summary>¿Me garantizan salir primero en Google?</summary><div class="r">
+        <p>No, y desconfía de quien te lo prometa: nadie controla a Google. Lo que
+        sí controlamos es la base: que tu página esté bien construida, que diga con
+        claridad qué vendes y dónde, que abra rápido y que los buscadores la puedan
+        leer completa. Con eso compites por las búsquedas que importan para tu
+        negocio. Sin eso, ni siquiera entras a la competencia.</p></div></details>
       <details><summary>¿Y si no tengo fotos ni textos?</summary><div class="r">
         <p>Es lo normal y no es un problema. Te decimos exactamente qué hace falta y
         te ayudamos a ordenarlo.</p></div></details>
@@ -424,7 +583,7 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
 
 <section class="sec cierre" id="contacto">
   <div class="wrap">
-    <span class="et rv">07 / EMPECEMOS</span>
+    <span class="et rv">09 / EMPECEMOS</span>
     <h2 class="rv">Empieza por lo fácil.</h2>
     <p class="lead rv">Mándanos el link de tu página actual y te decimos, sin costo
       y sin compromiso, qué le arreglaríamos y por qué. Si todavía no tienes
