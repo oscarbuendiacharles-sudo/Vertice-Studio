@@ -208,6 +208,17 @@ a.marco:hover .barra span::after{opacity:1}
 .enlace{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
   font-size:15px;color:#7FA3E8;margin-top:6px}
 .enlace:hover{text-decoration:underline;text-underline-offset:4px}
+.demos{margin-top:clamp(56px,8vw,104px);padding-top:clamp(40px,5vw,56px);
+  border-top:1px solid var(--dark-line)}
+.demos-cab h3{font-size:clamp(22px,3vw,30px);margin:14px 0 12px;letter-spacing:-.02em}
+.demos-cab p{color:var(--on-dark-2);max-width:62ch;margin:0}
+.demos-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,40px);
+  margin-top:clamp(28px,4vw,44px)}
+@media(max-width:640px){.demos-grid{grid-template-columns:1fr}}
+.demo-card .demo{margin:18px 0 12px}
+.demo-card h3{font-size:19px;margin-top:8px}
+.demo-card p{font-size:15px;color:var(--on-dark-2);margin:10px 0 4px}
+.demo-card .enlace{font-size:14px}
 .nota-trabajo{margin-top:clamp(44px,6vw,72px);padding-top:22px;
   border-top:1px solid var(--dark-line);font-size:14px;color:var(--on-dark-2);
   max-width:62ch}
@@ -434,9 +445,71 @@ footer .abajo{margin-top:44px;padding-top:22px;border-top:1px solid var(--dark-l
       </div>
     </div>
 
+    <div class="demos">
+      <div class="demos-cab rv">
+        <div class="meta">DEMOS</div>
+        <h3>Cuatro negocios de muestra, construidos completos.</h3>
+        <p>Los hicimos sin encargo, para enseñar hasta dónde llega el trabajo. Los
+          negocios son de muestra; la página, la velocidad y el SEO son reales.</p>
+      </div>
+      <div class="demos-grid">
+        <div class="demo-card rv">
+          <a class="marco" href="https://ascua-sigma.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el demo de Ascua">
+            <div class="barra"><i></i><i></i><i></i><span>ascua-sigma.vercel.app</span></div>
+            <img src="assets/proyecto-4.jpg" alt="Demo de Ascua, asador de leña en Monterrey" loading="lazy">
+          </a>
+          <span class="demo">DEMO</span>
+          <div class="meta">MONTERREY · ASADOR</div>
+          <h3>Ascua</h3>
+          <p>Un asador de leña en San Pedro. La página vende la brasa antes que el
+            menú: cocción lenta, cortes al punto y reserva por WhatsApp.</p>
+          <a class="enlace" href="https://ascua-sigma.vercel.app" target="_blank" rel="noopener">Ver el demo →</a>
+        </div>
+        <div class="demo-card rv">
+          <a class="marco" href="https://cota-metalmecanica.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el demo de Cota Metalmecánica">
+            <div class="barra"><i></i><i></i><i></i><span>cota-metalmecanica.vercel.app</span></div>
+            <img src="assets/proyecto-5.jpg" alt="Demo de Cota Metalmecánica, corte láser y fabricación metálica en Monterrey" loading="lazy">
+          </a>
+          <span class="demo">DEMO</span>
+          <div class="meta">APODACA · METALMECÁNICA</div>
+          <h3>Cota Metalmecánica</h3>
+          <p>Corte láser, doblez y fabricación a la medida. Una página industrial
+            que habla de capacidades y tolerancias, para que un comprador cotice
+            sin llamar primero.</p>
+          <a class="enlace" href="https://cota-metalmecanica.vercel.app" target="_blank" rel="noopener">Ver el demo →</a>
+        </div>
+        <div class="demo-card rv">
+          <a class="marco" href="https://nacar-estudio-dental.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el demo de Nácar Estudio Dental">
+            <div class="barra"><i></i><i></i><i></i><span>nacar-estudio-dental.vercel.app</span></div>
+            <img src="assets/proyecto-6.jpg" alt="Demo de Nácar Estudio Dental, dentista en San Pedro Garza García" loading="lazy">
+          </a>
+          <span class="demo">DEMO</span>
+          <div class="meta">SAN PEDRO · CLÍNICA DENTAL</div>
+          <h3>Nácar Estudio Dental</h3>
+          <p>Una clínica de alta especialidad. Diseño de sonrisa, ortodoncia invisible
+            e implantes, con la calma como argumento y la valoración a un toque.</p>
+          <a class="enlace" href="https://nacar-estudio-dental.vercel.app" target="_blank" rel="noopener">Ver el demo →</a>
+        </div>
+        <div class="demo-card rv">
+          <a class="marco" href="https://umbral-plum.vercel.app" target="_blank" rel="noopener" aria-label="Abrir el demo de Umbral">
+            <div class="barra"><i></i><i></i><i></i><span>umbral-plum.vercel.app</span></div>
+            <img src="assets/proyecto-7.jpg" alt="Demo de Umbral, residencias con vista a la Sierra Madre en San Pedro Garza García" loading="lazy">
+          </a>
+          <span class="demo">DEMO</span>
+          <div class="meta">SAN PEDRO · DESARROLLO RESIDENCIAL</div>
+          <h3>Umbral</h3>
+          <p>Veintidós residencias en la falda de la Sierra Madre. Una página de
+            preventa que vende el lugar antes que los metros, y cierra en una
+            visita privada.</p>
+          <a class="enlace" href="https://umbral-plum.vercel.app" target="_blank" rel="noopener">Ver el demo →</a>
+        </div>
+      </div>
+    </div>
+
     <p class="nota-trabajo rv">Una propuesta es un sitio completo que diseñamos y
-      construimos para ese negocio, y que todavía no publican ellos. Lo decimos
-      porque preferimos que sepas exactamente qué estás viendo.</p>
+      construimos para ese negocio, y que todavía no publican ellos. Un demo es un
+      negocio de muestra, hecho para enseñar lo que hacemos. Lo decimos porque
+      preferimos que sepas exactamente qué estás viendo.</p>
   </div>
 </section>
 
